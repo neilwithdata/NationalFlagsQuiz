@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="NationalFlagsQuiz.AboutDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="800" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Width="460" Height="240">
+        <Border Margin="0" BorderBrush="#F09609" CornerRadius="10" Background="Black" BorderThickness="6" Height="240">
+            <Grid Margin="{StaticResource PhoneMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"  Grid.Column="0" Text="by "/>
+                <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" Grid.Row="0" Grid.Column="1" Text=" Neil Sainsbury" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" Foreground="#F09609" />
+
+                <TextBlock Grid.Row="1"  Grid.Column="0" Text="version "/>
+                <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" Grid.Row="1"  Grid.Column="1" Text=" 1.0.0.0" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" Foreground="#F09609" />
+
+                <TextBlock Grid.Row="2"  Grid.Column="0" Text="support "/>
+                <HyperlinkButton FontSize="{StaticResource PhoneFontSizeSmall}" Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" Content="@eZainny (twitter)" NavigateUri="https://twitter.com/#!/eZainny" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" Foreground="#1BA1E2" />
+
+                <TextBlock Grid.Row="3"  Grid.Column="0" Text="web " />
+                <HyperlinkButton FontSize="{StaticResource PhoneFontSizeSmall}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Content="www.earthtoneil.com" NavigateUri="http://www.earthtoneil.com" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" Foreground="#1BA1E2" />
+                
+                <Button Margin="{StaticResource PhoneVerticalMargin}" Grid.Row="4" Grid.ColumnSpan="2" Content="Review this app!" Click="ReviewButton_Click" />
+            </Grid>
+           
+
+            <!--
+            <StackPanel>
+                
+                <TextBlock Text="by Neil Sainsbury" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" />
+                <TextBlock Text="Version: 1.0.0.0" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Support: " />
+                    <HyperlinkButton Content="@eZainny" NavigateUri="https://twitter.com/#!/eZainny" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Web: " />
+                    <HyperlinkButton Content="http://www.earthtoneil.com" NavigateUri="http://www.earthtoneil.com" />
+                </StackPanel>
+
+                <Button Content="Review this app!" HorizontalAlignment="Center" />
+            </StackPanel>
+            
+            
+            <Grid>
+                <Button Content="Buy" Height="72" HorizontalAlignment="Right" Margin="0,0,10,10" x:Name="btnBuy" VerticalAlignment="Bottom" Width="160" BorderBrush="White" Foreground="White" BorderThickness="4" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFB259FF" Offset="0"/>
+                            <GradientStop Color="#FF460083" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="Not Now" Height="72" HorizontalAlignment="Left" Margin="10,0,0,10" x:Name="btnCancel" VerticalAlignment="Bottom" Width="160" Foreground="White" BorderBrush="White" BorderThickness="4" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF460083" Offset="1"/>
+                            <GradientStop Color="#FFB259FF"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBlock HorizontalAlignment="Center" Margin="4,4,0,70" x:Name="txtMessageShadow" Text="Buy this application and get rid of the ads!" TextWrapping="Wrap" FontSize="32" TextAlignment="Center" Width="320" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF0B2B00" FontWeight="Bold" TextOptions.TextHintingMode="Animated" />
+                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,70" x:Name="txtMessage" Text="Buy this application and get rid of the ads!" TextWrapping="Wrap" FontSize="32" TextAlignment="Center" Width="320" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="White" FontWeight="Bold" TextOptions.TextHintingMode="Animated" />
+            </Grid> -->
+        </Border>
+    </Grid>
+</UserControl>

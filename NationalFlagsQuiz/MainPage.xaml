@@ -1,0 +1,118 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="NationalFlagsQuiz.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="BackgroundStoryboard" Storyboard.TargetName="BackgroundImage" Storyboard.TargetProperty="(Canvas.Left)">
+            <DoubleAnimation From="0" To="-585" Duration="0:2:0" AutoReverse="True" RepeatBehavior="Forever">
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Name="UserSelectionStoryboard" Storyboard.TargetName="UserSelectionSlideIn" Storyboard.TargetProperty="X">
+            <DoubleAnimation From="-480" To="0" Duration="0:0:2">
+                <DoubleAnimation.EasingFunction>
+                    <BounceEase EasingMode="EaseOut" Bounces="2" Bounciness="4" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Name="LearnSlideOutStoryboard" Storyboard.TargetName="LearnSlideOut" Storyboard.TargetProperty="X">
+            <DoubleAnimation To="480" Duration="0:0:0.25" />
+        </Storyboard>
+
+        <Storyboard x:Name="TakeQuizSlideOutStoryboard" Storyboard.TargetName="TakeQuizSlideOut" Storyboard.TargetProperty="X">
+            <DoubleAnimation To="480" Duration="0:0:0.25" />
+        </Storyboard>
+
+        <Storyboard x:Name="AboutInStoryboard" Storyboard.TargetName="AboutSlide" Storyboard.TargetProperty="Y">
+            <DoubleAnimation From="-200" To="0" Duration="0:0:2">
+                <DoubleAnimation.EasingFunction>
+                    <ElasticEase />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Name="AboutScaleStoryboard" Storyboard.TargetName="AboutScale">
+            <DoubleAnimation Storyboard.TargetProperty="ScaleX" From="1" To="1.5" Duration="0:0:0.2" AutoReverse="True" />
+            <DoubleAnimation Storyboard.TargetProperty="ScaleY" From="1" To="1.5" Duration="0:0:0.2" AutoReverse="True" />
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Canvas>
+            <Image x:Name="BackgroundImage" Source="Images/worldmapbg.jpg" Opacity="0.4" Stretch="None" />
+        </Canvas>
+
+        <StackPanel>
+            <StackPanel>
+                <TextBlock Text="national" Foreground="White" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" FontSize="65" TextAlignment="Left" />
+                <TextBlock Text="flags" Foreground="White" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" FontSize="65" TextAlignment="Left" />
+                <TextBlock Text="quiz" Foreground="White" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" FontSize="65" TextAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel x:Name="UserSelectionsStackpanel">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform x:Name="UserSelectionSlideIn" />
+                </StackPanel.RenderTransform>
+                <StackPanel x:Name="TakeQuizPanel">
+                    <TextBlock Text="==> take" Foreground="#A2C139" FontSize="60" TextAlignment="Left" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" FontStyle="Normal" FontStretch="Normal" FontWeight="Bold" Margin="12, 0, 12, 0" MouseLeftButtonUp="TakeQuiz_MouseLeftButtonUp" />
+                    <TextBlock Text="     quiz" Foreground="#A2C139" FontSize="60" TextAlignment="Left" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" FontStyle="Normal" FontStretch="Normal" FontWeight="Bold" Margin="12, 0, 12, 30" MouseLeftButtonUp="TakeQuiz_MouseLeftButtonUp" />
+                    <StackPanel.RenderTransform>
+                        <TranslateTransform x:Name="TakeQuizSlideOut" />
+                    </StackPanel.RenderTransform>
+                </StackPanel>
+                <TextBlock Text="==> learn" Foreground="#A2C139" FontSize="60" TextAlignment="Left" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" FontStyle="Normal" FontStretch="Normal" FontWeight="Bold" Margin="12, 0, 12, 30" MouseLeftButtonUp="Learn_MouseLeftButtonUp">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform x:Name="LearnSlideOut" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="AboutPanel" VerticalAlignment="Bottom" RenderTransformOrigin="0.5, 0.5">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform x:Name="AboutSlide" />
+                </StackPanel.RenderTransform>
+
+                <TextBlock Text="About" Foreground="#F09609" FontSize="25" TextAlignment="Right" FontFamily="Fonts/AgentOrange.ttf#Agent Orange" FontStyle="Normal" FontStretch="Normal" FontWeight="Bold" MouseLeftButtonDown="About_MouseLeftButtonDown" MouseLeftButtonUp="About_MouseLeftButtonUp" RenderTransformOrigin="0.8,0.5">
+                    <TextBlock.RenderTransform>
+                        <ScaleTransform x:Name="AboutScale" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</phone:PhoneApplicationPage>

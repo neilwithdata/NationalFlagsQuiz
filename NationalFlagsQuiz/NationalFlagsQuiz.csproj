@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CF843C7C-FB02-454E-B424-ACF40552E916}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NationalFlagsQuiz</RootNamespace>
+    <AssemblyName>NationalFlagsQuiz</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>NationalFlagsQuiz.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>NationalFlagsQuiz.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <HintPath>..\packages\SilverlightToolkitWP.4.2011.12.14\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.3\lib\sl4-windowsphone71\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\UiHelper.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Quiz.cs" />
+    <Compile Include="Pages\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LearningPage.xaml.cs">
+      <DependentUpon>LearningPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\QuizPage.xaml.cs">
+      <DependentUpon>QuizPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SelectContinentPage.xaml.cs">
+      <DependentUpon>SelectContinentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AboutDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LearningPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\QuizPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SelectContinentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\flags\ad.png" />
+    <Content Include="Data\flags\ae.png" />
+    <Content Include="Data\flags\af.png" />
+    <Content Include="Data\flags\ag.png" />
+    <Content Include="Data\flags\al.png" />
+    <Content Include="Data\flags\am.png" />
+    <Content Include="Data\flags\ao.png" />
+    <Content Include="Data\flags\ar.png" />
+    <Content Include="Data\flags\at.png" />
+    <Content Include="Data\flags\au.png" />
+    <Content Include="Data\flags\az.png" />
+    <Content Include="Data\flags\ba.png" />
+    <Content Include="Data\flags\bb.png" />
+    <Content Include="Data\flags\bd.png" />
+    <Content Include="Data\flags\be.png" />
+    <Content Include="Data\flags\bf.png" />
+    <Content Include="Data\flags\bg.png" />
+    <Content Include="Data\flags\bh.png" />
+    <Content Include="Data\flags\bi.png" />
+    <Content Include="Data\flags\bj.png" />
+    <Content Include="Data\flags\bn.png" />
+    <Content Include="Data\flags\bo.png" />
+    <Content Include="Data\flags\br.png" />
+    <Content Include="Data\flags\bs.png" />
+    <Content Include="Data\flags\bt.png" />
+    <Content Include="Data\flags\bw.png" />
+    <Content Include="Data\flags\by.png" />
+    <Content Include="Data\flags\bz.png" />
+    <Content Include="Data\flags\ca.png" />
+    <Content Include="Data\flags\cd.png" />
+    <Content Include="Data\flags\cf.png" />
+    <Content Include="Data\flags\cg.png" />
+    <Content Include="Data\flags\ch.png" />
+    <Content Include="Data\flags\ci.png" />
+    <Content Include="Data\flags\cl.png" />
+    <Content Include="Data\flags\cm.png" />
+    <Content Include="Data\flags\cn.png" />
+    <Content Include="Data\flags\co.png" />
+    <Content Include="Data\flags\cr.png" />
+    <Content Include="Data\flags\cu.png" />
+    <Content Include="Data\flags\cv.png" />
+    <Content Include="Data\flags\cy.png" />
+    <Content Include="Data\flags\cz.png" />
+    <Content Include="Data\flags\de.png" />
+    <Content Include="Data\flags\dj.png" />
+    <Content Include="Data\flags\dk.png" />
+    <Content Include="Data\flags\dm.png" />
+    <Content Include="Data\flags\do.png" />
+    <Content Include="Data\flags\dz.png" />
+    <Content Include="Data\flags\ec.png" />
+    <Content Include="Data\flags\ee.png" />
+    <Content Include="Data\flags\eg.png" />
+    <Content Include="Data\flags\eh.png" />
+    <Content Include="Data\flags\er.png" />
+    <Content Include="Data\flags\es.png" />
+    <Content Include="Data\flags\et.png" />
+    <Content Include="Data\flags\fi.png" />
+    <Content Include="Data\flags\fj.png" />
+    <Content Include="Data\flags\fm.png" />
+    <Content Include="Data\flags\fr.png" />
+    <Content Include="Data\flags\ga.png" />
+    <Content Include="Data\flags\gb.png" />
+    <Content Include="Data\flags\gd.png" />
+    <Content Include="Data\flags\ge.png" />
+    <Content Include="Data\flags\gh.png" />
+    <Content Include="Data\flags\gm.png" />
+    <Content Include="Data\flags\gn.png" />
+    <Content Include="Data\flags\gq.png" />
+    <Content Include="Data\flags\gr.png" />
+    <Content Include="Data\flags\gt.png" />
+    <Content Include="Data\flags\gw.png" />
+    <Content Include="Data\flags\gy.png" />
+    <Content Include="Data\flags\hn.png" />
+    <Content Include="Data\flags\hr.png" />
+    <Content Include="Data\flags\ht.png" />
+    <Content Include="Data\flags\hu.png" />
+    <Content Include="Data\flags\id.png" />
+    <Content Include="Data\flags\ie.png" />
+    <Content Include="Data\flags\il.png" />
+    <Content Include="Data\flags\in.png" />
+    <Content Include="Data\flags\iq.png" />
+    <Content Include="Data\flags\ir.png" />
+    <Content Include="Data\flags\is.png" />
+    <Content Include="Data\flags\it.png" />
+    <Content Include="Data\flags\jm.png" />
+    <Content Include="Data\flags\jo.png" />
+    <Content Include="Data\flags\jp.png" />
+    <Content Include="Data\flags\ke.png" />
+    <Content Include="Data\flags\kg.png" />
+    <Content Include="Data\flags\kh.png" />
+    <Content Include="Data\flags\ki.png" />
+    <Content Include="Data\flags\km.png" />
+    <Content Include="Data\flags\kn.png" />
+    <Content Include="Data\flags\kp.png" />
+    <Content Include="Data\flags\kr.png" />
+    <Content Include="Data\flags\ks.png" />
+    <Content Include="Data\flags\kw.png" />
+    <Content Include="Data\flags\kz.png" />
+    <Content Include="Data\flags\la.png" />
+    <Content Include="Data\flags\lb.png" />
+    <Content Include="Data\flags\lc.png" />
+    <Content Include="Data\flags\li.png" />
+    <Content Include="Data\flags\lk.png" />
+    <Content Include="Data\flags\lr.png" />
+    <Content Include="Data\flags\ls.png" />
+    <Content Include="Data\flags\lt.png" />
+    <Content Include="Data\flags\lu.png" />
+    <Content Include="Data\flags\lv.png" />
+    <Content Include="Data\flags\ly.png" />
+    <Content Include="Data\flags\ma.png" />
+    <Content Include="Data\flags\mc.png" />
+    <Content Include="Data\flags\md.png" />
+    <Content Include="Data\flags\me.png" />
+    <Content Include="Data\flags\mg.png" />
+    <Content Include="Data\flags\mh.png" />
+    <Content Include="Data\flags\mk.png" />
+    <Content Include="Data\flags\ml.png" />
+    <Content Include="Data\flags\mm.png" />
+    <Content Include="Data\flags\mn.png" />
+    <Content Include="Data\flags\mr.png" />
+    <Content Include="Data\flags\mt.png" />
+    <Content Include="Data\flags\mu.png" />
+    <Content Include="Data\flags\mv.png" />
+    <Content Include="Data\flags\mw.png" />
+    <Content Include="Data\flags\mx.png" />
+    <Content Include="Data\flags\my.png" />
+    <Content Include="Data\flags\mz.png" />
+    <Content Include="Data\flags\na.png" />
+    <Content Include="Data\flags\ne.png" />
+    <Content Include="Data\flags\ng.png" />
+    <Content Include="Data\flags\ni.png" />
+    <Content Include="Data\flags\nl.png" />
+    <Content Include="Data\flags\no.png" />
+    <Content Include="Data\flags\np.png" />
+    <Content Include="Data\flags\nr.png" />
+    <Content Include="Data\flags\nz.png" />
+    <Content Include="Data\flags\om.png" />
+    <Content Include="Data\flags\pa.png" />
+    <Content Include="Data\flags\pe.png" />
+    <Content Include="Data\flags\pg.png" />
+    <Content Include="Data\flags\ph.png" />
+    <Content Include="Data\flags\pk.png" />
+    <Content Include="Data\flags\pl.png" />
+    <Content Include="Data\flags\pt.png" />
+    <Content Include="Data\flags\pw.png" />
+    <Content Include="Data\flags\py.png" />
+    <Content Include="Data\flags\qa.png" />
+    <Content Include="Data\flags\ro.png" />
+    <Content Include="Data\flags\rs.png" />
+    <Content Include="Data\flags\ru.png" />
+    <Content Include="Data\flags\rw.png" />
+    <Content Include="Data\flags\sa.png" />
+    <Content Include="Data\flags\sb.png" />
+    <Content Include="Data\flags\sc.png" />
+    <Content Include="Data\flags\sd.png" />
+    <Content Include="Data\flags\se.png" />
+    <Content Include="Data\flags\sg.png" />
+    <Content Include="Data\flags\si.png" />
+    <Content Include="Data\flags\sk.png" />
+    <Content Include="Data\flags\sl.png" />
+    <Content Include="Data\flags\sm.png" />
+    <Content Include="Data\flags\sn.png" />
+    <Content Include="Data\flags\so.png" />
+    <Content Include="Data\flags\sr.png" />
+    <Content Include="Data\flags\st.png" />
+    <Content Include="Data\flags\sv.png" />
+    <Content Include="Data\flags\sy.png" />
+    <Content Include="Data\flags\sz.png" />
+    <Content Include="Data\flags\td.png" />
+    <Content Include="Data\flags\tg.png" />
+    <Content Include="Data\flags\th.png" />
+    <Content Include="Data\flags\tj.png" />
+    <Content Include="Data\flags\tl.png" />
+    <Content Include="Data\flags\tm.png" />
+    <Content Include="Data\flags\tn.png" />
+    <Content Include="Data\flags\to.png" />
+    <Content Include="Data\flags\tr.png" />
+    <Content Include="Data\flags\tt.png" />
+    <Content Include="Data\flags\tv.png" />
+    <Content Include="Data\flags\tw.png" />
+    <Content Include="Data\flags\tz.png" />
+    <Content Include="Data\flags\ua.png" />
+    <Content Include="Data\flags\ug.png" />
+    <Content Include="Data\flags\us.png" />
+    <Content Include="Data\flags\uy.png" />
+    <Content Include="Data\flags\uz.png" />
+    <Content Include="Data\flags\va.png" />
+    <Content Include="Data\flags\vc.png" />
+    <Content Include="Data\flags\ve.png" />
+    <Content Include="Data\flags\vn.png" />
+    <Content Include="Data\flags\vu.png" />
+    <Content Include="Data\flags\ws.png" />
+    <Content Include="Data\flags\ye.png" />
+    <Content Include="Data\flags\za.png" />
+    <Content Include="Data\flags\zm.png" />
+    <Content Include="Data\flags\zw.png" />
+    <Content Include="Fonts\AgentOrange.ttf" />
+    <Content Include="Data\countries.json" />
+    <Content Include="Images\africa.png" />
+    <Content Include="Images\asia.png" />
+    <Content Include="Images\correct.png" />
+    <Content Include="Images\Dessert.jpg" />
+    <Content Include="Images\earth.jpg" />
+    <Content Include="Images\europe.png" />
+    <Content Include="Images\north_america.png" />
+    <Content Include="Images\oceania.png" />
+    <Content Include="Images\southamerica.png" />
+    <Content Include="Images\world_blank.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <None Include="Docs\info.txt" />
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\worldmapbg.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>
